@@ -3,6 +3,7 @@ package com.istudio.notescmp
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,6 +15,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.istudio.notescmp.navigation.NavGraph
+import com.istudio.notescmp.util.darkScheme
+import com.istudio.notescmp.util.lightScheme
 import org.jetbrains.compose.resources.painterResource
 
 import notescmp.shared.generated.resources.Res
@@ -22,7 +26,8 @@ import notescmp.shared.generated.resources.compose_multiplatform
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
-
+    val colorScheme = if (isSystemInDarkTheme()) darkScheme else lightScheme
+    MaterialTheme(colorScheme) {
+        NavGraph()
     }
 }
