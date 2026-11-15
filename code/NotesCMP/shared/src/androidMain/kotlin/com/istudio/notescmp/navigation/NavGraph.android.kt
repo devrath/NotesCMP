@@ -16,11 +16,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
+import org.koin.compose.koinInject
 
 @Composable
 actual fun NavGraph() {
 
-    val navigator = remember { Navigator() }
+    val navigator = koinInject<Navigator>()
 
     // Here we display all possible destinations our app can have
     NavDisplay(
